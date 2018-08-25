@@ -1,11 +1,14 @@
 # pwr
+
+Fork of Julia pwr package -- includes fixes for Julia 0.6.4.
+
 Julia port of `pwr` package in R. This package was originally created by Stephane Champely, from the University of Lyon. This package implemented power calculations along the lines of Cohen (1988) using in particular the same notations for effect sizes. Some examples from the book are used below.
 
 ## Installation
 To install `pwr`, use the following:
 
 ```jldoctest
-Pkg.clone("https://github.com/mwsohn/pwr.jl")
+Pkg.clone("https://github.com/doughodson/pwr.jl")
 ```
 
 To use the package, start by `using pwr` in your session.
@@ -51,7 +54,7 @@ Compute power for balanced one-way analysis of variance tests
 
 #### Functions:
 
-All options listed above must be specified as keyword argments
+All options listed above must be specified as keyword arguments
 except for the parameter to be estimated. For example,
 for `powerAnovaTest()`, do not specify `power` option:
 powerAnovaTest(k=2,n=200,f=.3) will compute power for a sample of 200
@@ -67,10 +70,10 @@ one of the options needs to be set to zero.
 #### Examples
 
 ```jldoctest
-julia> p = powerAnovaTest(n=100,k=2,f=.2)
+julia> p = powerAnovaTest(k=2, n=100, f=0.2)
 0.8036475048589252
 
-julia> tst = pwr.AnovaTest(n=100,k=2,f=.2,power=0.0)
+julia> tst = pwr.AnovaTest(k=2, n=100, f=0.2, alpha=0.05)
 Balanced one-way analysis of variance power calculation
 
             k = 2
