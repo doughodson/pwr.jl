@@ -1,4 +1,5 @@
-using Plots, DataFrames, Roots
+
+using Plots, Plots.PlotMeasures, DataFrames, Roots
 
 import RecipesBase.plot
 
